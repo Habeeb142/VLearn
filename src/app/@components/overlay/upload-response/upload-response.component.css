@@ -1,0 +1,25 @@
+.parent {
+    padding: 3.5rem; 
+}
+img {
+    border-radius: 50%;
+}
+.in-progress {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: rgb(55, 38, 68);  
+    margin-top: 1.5rem;
+}
+button {
+    background: linear-gradient(268.84deg, #732CA4 0%, #8C62A9 100.7%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+    width: 40%;
+    margin-top: 2.5rem;
+    /* padding: .5rem */
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+}

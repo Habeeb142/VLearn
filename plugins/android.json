@@ -1,0 +1,31 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.vlearn.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.vlearn.app"
+    },
+    "cordova-plugin-speechrecognition": {
+      "PACKAGE_NAME": "com.vlearn.app"
+    },
+    "cordova-plugin-tts": {
+      "PACKAGE_NAME": "com.vlearn.app"
+    },
+    "cordova-plugin-mobile-ocr": {
+      "PACKAGE_NAME": "com.vlearn.app"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.vlearn.app"
+    }
+  },
+  "dependent_plugins": {}
+}

@@ -1,0 +1,20 @@
+<div class="parent" *ngIf="resultAvailable">
+    <div class="text-center" *ngIf="correct">
+        <img width="150" height="150" src="https://i.pinimg.com/originals/7a/9b/80/7a9b8077fd3b55d8ab72bdb6864f9448.gif" alt="">
+    </div>
+    <div class="in-progress" *ngIf="correct" >Yes! You are a genius.</div>
+    <button mat-button *ngIf="correct" (click)="listen()">Proceed?</button>
+
+    <div class="text-center" *ngIf="!correct">
+        <img width="150" height="150" src="https://i.pinimg.com/originals/7a/9b/80/7a9b8077fd3b55d8ab72bdb6864f9448.gif" alt="">
+    </div>
+    <div class="in-progress" *ngIf="!correct" >Oops! Sorry, You missed that.</div>
+    <button mat-button *ngIf="!correct" (click)="listen()">Again?</button>
+</div>
+
+<div class="parent" *ngIf="!resultAvailable">
+    <div class="text-center">
+        <img width="150" height="150" src="https://i.pinimg.com/originals/7a/9b/80/7a9b8077fd3b55d8ab72bdb6864f9448.gif" alt="">
+    </div>
+    <div class="in-progress" >VLearn is speaking, kindly listen...</div>
+</div>
