@@ -1,4 +1,5 @@
 <div class="parent">
+    <!-- Header -->
     <div class="flex space-between">
         <span mat-ripple (click)="back()">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +35,7 @@
         <div class="what">
             Fill in the boxes
          </div>
-
+         <!-- Looping through data for display -->
          <div class="content" *ngFor="let item of data; let i = index">
             <div class="mr-2">{{i+1}}.</div>
             <div>
@@ -42,12 +43,14 @@
                 <input type="text" [(ngModel)]="item.answer" [disabled] = "data[0]?.submitted">
                 <span>{{item?.second_text}}</span> 
             </div>
+            <!-- Mark or Wrong images using if condition -->
             <div class="ml-auto">
                 <img src="assets/mark.jpeg" alt="" width="30" height="30" *ngIf="item?.correct == true">
                 <img src="assets/cancel.png" width="25" height="25" alt="" *ngIf="item?.correct == false">
             </div>
          </div>
 
+         <!-- Action Button Section -->
          <div class="d-flex" style="align-items: center;">
              <button mat-button (click)="handleSubmit()" *ngIf="!data[0]?.submitted">Submit</button>
              <div *ngIf="data[0]?.submitted" [style.color]="handleScore() > 50 ? 'green' : 'red'" >Your Score: {{handleScore()}}%</div>

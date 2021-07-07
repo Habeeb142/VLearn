@@ -27,3 +27,15 @@ Different tabs exist on the application viz-a-viz:
     Question and Answer Tab
     Text Translation Tab
     Learn On The Move Tab
+    Memorize on the move Tab
+    Fill The Gaps Tab
+    Image Identifier Tab
+
+## Question and Answer Tab
+
+## Fill The Gaps Tab
+Fill in the gap tab accept two different kind of data source.
+    The first one is copy and paste text to extract and
+    The second is to take a snapshot of a page then our AI extracts the texts.
+
+Once texts are been extracted, the onload function in the fill in the gap compnents generates all the available word to use for the exercise
