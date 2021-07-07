@@ -21,6 +21,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Home
+This houses the 5 different tabs we have and it serves as the index page
+
 ## Different Tabs 
 
 Different tabs exist on the application viz-a-viz:
@@ -38,4 +41,7 @@ Fill in the gap tab accept two different kind of data source.
     The first one is copy and paste text to extract and
     The second is to take a snapshot of a page then our AI extracts the texts.
 
-Once texts are been extracted, the onload function in the fill in the gap compnents generates all the available word to use for the exercise
+Once texts are been extracted, the onload function in the fill-the-gap components generates all the available word to use for the exercise
+
+##  Memorize on the move Tab
+This Tab allow user to input some definations in an input box and our AI reads the words for the user and wait for the user to also read out the defibation...It tells the user if he is wrong or right...You can only proceed when you are right

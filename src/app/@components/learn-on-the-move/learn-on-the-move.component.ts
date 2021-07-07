@@ -12,9 +12,11 @@ import { Component, Injectable, OnInit } from '@angular/core';
   providedIn: 'root'
 })
 export class LearnOnTheMoveComponent implements OnInit {
+  // Predefined texts
   text: string = `Biology is the study of plant and animal.
-  A Computer is an electronic machine which accepts data processes data and give out information.
+  A Computer is an electronic machine that processes data and give out information.
   Agriculture is the practice of cultivating plants and livestock.`
+
   constructor(
     private rout: Router,
     private bottomSheet: MatBottomSheet,
@@ -26,9 +28,10 @@ export class LearnOnTheMoveComponent implements OnInit {
   back() {
     this.rout.navigate([''])
   }
-
+  // Funcion handling submit event
   handleMemorize() {
     if(this.text!=='') {
+      // Sends data to a bottom sheet
       this.bottomSheet.open(MemorizationInProgressComponent, { data: this.text.split('.') })
     }
   }
