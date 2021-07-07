@@ -18,13 +18,13 @@ export class ErrorResponseComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  // Retry function...Check where you are coming from to know where to navigate to
   retry() {
     this.server.comingFrom == '/question-and-answer' ?
     this.rout.navigate(['question-and-answer']) :
     this.rout.navigate(['fill-the-gaps']) 
   }
-
+  // Back function
   goBack() {
     this.bottomSheet.dismiss()
   }
