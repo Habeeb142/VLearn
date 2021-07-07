@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
     private router: Router
   ) { }
 
+  // Array handling different available tabs
   items = [ 
     { 
       text: 'Generate Questions & Answers',
@@ -41,7 +42,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  // Navigation handler
   screenTo(rout) {
     this.router.navigate([rout])
   }
