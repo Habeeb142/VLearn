@@ -16,15 +16,19 @@ export class ViewQuestionsComponent implements OnInit {
     private rout: Router
     ) { }
 
+    // onload
   ngOnInit(): void {
     this.getQuestions()
   }
 
+  // fetch questions from our Azure database
   getQuestions() {
     this.babyLoader.start()
+    // Go through the service to fetch data from the databse
     this.server.getQuestions().subscribe((dat: any)=>{
       this.babyLoader.stop()
       if(dat.isSuccess) {
+        // array.reverse the data
         this.questions = dat['results'].reverse();
         // JSON.parse the results from AI
         for (let index = 0; index < this.questions.length; index++) {
@@ -45,18 +49,16 @@ export class ViewQuestionsComponent implements OnInit {
     })
   }
 
+  // back function
   back() {
     this.rout.navigate(['question-and-answer'])
   }
-
+  // Home function
   home() {
     this.rout.navigate([''])
   }
-
-  setAnswer(mainIndex, subIndex, answer) {
-    this.questions[mainIndex]['result'][subIndex]['my_answer'] = answer;
-  }
   
+  // Handle submit handler
   handleSubmit(mainIndex) {
     this.questions[mainIndex]['submitted'] = true;
     for (let index = 0; index < this.questions[mainIndex]['result'].length; index++) {
@@ -67,6 +69,12 @@ export class ViewQuestionsComponent implements OnInit {
     this.isOpen = []
   }
 
+  // Set answer to specific question upon submission by the user
+  setAnswer(mainIndex, subIndex, answer) {
+    this.questions[mainIndex]['result'][subIndex]['my_answer'] = answer;
+  }
+
+  // Shuffle options
   shuffle(array) {
     var currentIndex = array.length,  randomIndex;
   
@@ -85,6 +93,7 @@ export class ViewQuestionsComponent implements OnInit {
     return array;
   }
 
+  // Get result upon submission
   getResult(result) {
     console.log(result)
     return (((result.filter(dat=>dat?.status==true).length)/result.length)*100).toFixed(0)

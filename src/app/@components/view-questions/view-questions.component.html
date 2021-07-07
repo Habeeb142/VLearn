@@ -1,4 +1,5 @@
 <div class="parent">
+    <!-- Head -->
     <div class="flex space-between">
         <span mat-ripple (click)="back()">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,6 +36,7 @@
             Select one of your uploaded books!
          </div>
 
+         <!-- Loop diffrent available books -->
         <mat-expansion-panel mat-ripple *ngFor="let question of questions; let mainIndex = index"  class="question" [expanded]="isOpen[i]" >
             <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -50,6 +52,7 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <div class="title">Questions</div>
+            <!-- Loop available questions -->
             <div class="questions" *ngFor="let item of question?.result; let subIndex = index">
                 <div>
                     <div> {{ item?.id }}.</div>
@@ -61,11 +64,13 @@
                         </div>
                     </mat-radio-group>
                 </div>
+                <!-- Marker showing if wrong or Right -->
                 <div class="mr-auto">
                     <img src="assets/mark.jpeg" alt="" width="30" height="30" *ngIf="item?.status == true">
                     <img src="assets/cancel.png" width="25" height="25" alt="" *ngIf="item?.status == false">
                 </div>
             </div>
+            <!-- Subission button -->
             <div class="d-flex mt-4">
                 <button mat-button class="ml-auto" *ngIf="!question?.submitted" (click)="handleSubmit(mainIndex)">Submit</button>
                 <button mat-button class="ml-auto" *ngIf="question?.submitted" (click)="getQuestions()">Refresh All</button>

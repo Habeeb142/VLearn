@@ -21,6 +21,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Database and AI mODEL 
+Hosted on AZURE
+
+
 ## Home
 This houses the 5 different tabs we have and it serves as the index page
 
@@ -48,4 +52,5 @@ Once texts are been extracted, the onload function in the fill-the-gap component
 ##  Memorize on the move Tab
 This Tab allows user to input some definations in an input box and our AI reads the words for the user and wait for the user to also read out the defibation...It tells the user if he is wrong or right...You can only proceed when you are right
 
-##  Question and Answer Tab
+##  Translation Tab
+This tab reseives a source language from the user which can either be Yoruba or English for now, then transalte it to the desired target the user desires.
