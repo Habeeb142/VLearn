@@ -25,6 +25,7 @@ export class QuestionAndAnswerComponent implements OnInit {
     ) { }
 
   extractedText: null;
+  // Differnet actions
   items = [ 
     { 
       text: 'Capture a page',
@@ -46,16 +47,19 @@ export class QuestionAndAnswerComponent implements OnInit {
     }
    ]
 
+  //  Onlaod
   ngOnInit(): void {
     this.rout.url == '/question-and-answer' ? null : this.items.pop()
   }
-
+  // Back
   back() {
     this.rout.navigate([''])
   }
 
+  // Rout to differnt tabs
   screenTo(x) {
     switch (x) {
+      // if uploading image from camera
       case 'upload':
         const options: CameraOptions = {
           quality: 100,
@@ -79,7 +83,7 @@ export class QuestionAndAnswerComponent implements OnInit {
         break;
     }
   }
-
+  // Text extractor function
   handleExtractTextFromFileUrl(base64File) {
     try {
       this.ocr.recText(OCRSourceType.BASE64, base64File)
@@ -89,18 +93,22 @@ export class QuestionAndAnswerComponent implements OnInit {
       this.bottomSheet.open(ErrorResponseComponent)
     }
   }
-  
+  // Sanitize data to usable format
   cleanData(response) {
     this.babyLoader.start();
     this.extractedText = response.join(" ");
+    // Send data to AI 
     this.server.submitExtractedTextAndGetQuestions(this.extractedText)
     .subscribe((dat: any)=>{
+      // AI report
       this.server.submitResult(JSON.stringify(dat['output']['questions']), this.extractedText)
       .subscribe((dat: any)=>{
         this.babyLoader.stop()
+        // if suceess
         if(dat.isSuccess) {
           this.bottomSheet.open(UploadResponseComponent)
         }
+        // if !success
         else {
           this.babyLoader.stop()
           this.bottomSheet.open(ErrorResponseComponent)
@@ -110,6 +118,7 @@ export class QuestionAndAnswerComponent implements OnInit {
     err=>{this.babyLoader.stop(); this.bottomSheet.open(ErrorResponseComponent)})
   }
 
+  // Sanitize and Provide data to fill in the gap comonent
   handleFillTheGapsData(data) {
     const refactured_data = data.join(" ").replace(",", " ").replace(".", " ").replace("-", " ").replace(":", " ").split(" ")
     const data_array  = refactured_data.filter(dat=>dat.length > 3)

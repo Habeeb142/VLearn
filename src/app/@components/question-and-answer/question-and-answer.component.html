@@ -1,4 +1,5 @@
 <div class="parent">
+    <!-- Header -->
     <div class="flex space-between">
         <span mat-ripple (click)="back()">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,12 +35,11 @@
         <div class="what">
             What option would you like to select?
          </div>
-
+         <!-- Loop to display type of action user would like to perform -->
          <div class="item" mat-ripple *ngFor="let item of items" [style.background]="item?.bgColor" [style.boxShadow]="item?.boxShadow" (click)="screenTo(item?.rout)">
-            <!-- <div class="item" mat-ripple *ngFor="let item of items" [style.background]="item?.bgColor" [style.boxShadow]="item?.boxShadow" (click)="item.rout == 'upload'? fileInput.click() : screenTo(item?.rout)"> -->
             {{item?.text}}
          </div>
-         
+         <!-- Discaliner -->
          <div class="disclaimer">
              <div class="title">**Disclaimer**</div>
              For this testing stage, a capture of only a book page with just text is allowed, non-texts such as diagram are not allowed. <br />

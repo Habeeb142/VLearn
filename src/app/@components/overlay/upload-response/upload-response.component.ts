@@ -16,12 +16,12 @@ export class UploadResponseComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  // View Questions handler
   viewQuestions() {
     this.bottomSheet.dismiss()
     this.rout.navigate(['view-questions'])
   }
-
+  // back function handler
   goBack() {
     this.bottomSheet.dismiss()
     this.rout.navigate(['question-and-answer'])
