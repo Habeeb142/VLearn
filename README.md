@@ -35,6 +35,8 @@ Different tabs exist on the application viz-a-viz:
     Image Identifier Tab
 
 ## Question and Answer Tab
+This Tab allows user to input some copied text or snap a page while our AI extracts text from the image and send sto another AI port to generate Question for user.
+The question alongside answers would be validated by the APP to give score to the user
 
 ## Fill The Gaps Tab
 Fill in the gap tab accept two different kind of data source.
@@ -47,5 +49,3 @@ Once texts are been extracted, the onload function in the fill-the-gap component
 This Tab allows user to input some definations in an input box and our AI reads the words for the user and wait for the user to also read out the defibation...It tells the user if he is wrong or right...You can only proceed when you are right
 
 ##  Question and Answer Tab
-This Tab allows user to input some copied text or snap a page while our AI extracts text from the image and send sto another AI port to generate Question for user.
-The question alongside answers would be validated by the APP to give score to the user
