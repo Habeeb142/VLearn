@@ -1,3 +1,5 @@
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { ServiceService } from './../../@core/service.service';
 import { ErrorResponseComponent } from './../overlay/error-response/error-response.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
@@ -18,21 +20,24 @@ export class ImageIdentifierComponent implements OnInit {
     private router: Router,
     private babyLoader: NgxUiLoaderService,
     private camera: Camera,
-    private bottomSheet: MatBottomSheet
+    private bottomSheet: MatBottomSheet,
+    private server: ServiceService,
+    private tts: TextToSpeech
     ) { }
 
   ngOnInit(): void {
     this.snapShot()
   }
-
+  // Rout to home
   home() {
     this.router.navigate([''])
   }
-
+  // Rout to back
   back() {
     this.home()
   }
 
+  // Open camera 
   snapShot() {
     const options: CameraOptions = {
       quality: 100,
@@ -42,9 +47,23 @@ export class ImageIdentifierComponent implements OnInit {
     }
     this.camera.getPicture(options).then((imageData) => {
       alert(JSON.stringify(imageData))
-     }, (err) => {
+      // Send image to service to send to AI
+      this.server.sendImageForAnalysis(imageData).subscribe(dat=>{
+        this.responseText = `The image is an ${dat}`;
+        // handle text to speech function
+        this.handleSpeechToText()
+        // Handle Error
+      }, err => {this.babyLoader.stop(); this.bottomSheet.open(ErrorResponseComponent)})
+    }, (err) => {
       this.bottomSheet.open(ErrorResponseComponent)
       // Handle error
      });
+  }
+
+  // Handle SpeechToText
+  handleSpeechToText() {
+    this.tts.speak({ text: this.responseText, rate: 0.55 } )
+    .then(() => {})
+    .catch((reason: any) => console.log(reason));
   }
  }
