@@ -1,5 +1,4 @@
 # Tunga
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
 ## Development server
@@ -22,6 +21,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Different Tabs 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Different tabs exist on the application viz-a-viz:
+    Question and Answer Tab
+    Text Translation Tab
+    Learn On The Move Tab

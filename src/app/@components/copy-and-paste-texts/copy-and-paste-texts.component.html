@@ -1,5 +1,7 @@
 <div class="parent">
+    <!-- Header Section -->
     <div class="flex space-between">
+        <!-- Back Routing -->
         <span mat-ripple (click)="back()">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0)">
@@ -13,6 +15,7 @@
             </svg>               
         </span>
         VLearn
+        <!-- Home Routing -->
         <span mat-ripple (click)="home()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21.8649 10.6217L12.7046 2.27481C12.3025 1.90838 11.6962 1.90842 11.2943 2.27477L2.13388 10.6217C1.81179 10.9152 1.7054 11.3674 1.86276 11.7737C2.02015 12.18 2.40336 12.4425 2.83909 12.4425H4.30216V20.8055C4.30216 21.137 4.57101 21.4059 4.90258 21.4059H9.9236C10.2552 21.4059 10.524 21.1371 10.524 20.8055V15.7278H13.475V20.8055C13.475 21.1371 13.7438 21.4059 14.0754 21.4059H19.0962C19.4277 21.4059 19.6966 21.1371 19.6966 20.8055V12.4425H21.1599C21.5956 12.4425 21.9789 12.18 22.1363 11.7737C22.2934 11.3674 22.187 10.9152 21.8649 10.6217Z" fill="url(#paint0_linear)"/>
@@ -41,7 +44,7 @@
                 <textarea matInput rows="10" name="text" [(ngModel)]="text"></textarea>
             </mat-form-field>
          </div>
-
+         <!-- Action -->
          <button mat-button (click)="comingFrom == '/question-and-answer' ? extract() : sendData()">
              Extract 
          </button>

@@ -27,27 +27,34 @@ export class CopyAndPasteTextsComponent implements OnInit {
     this.comingFrom = this.server.comingFrom
   }
 
+  // Back function Hnadler: Check which page you are coming from in other to know where to rout to
   back() {
     this.comingFrom == '/question-and-answer'?
     this.rout.navigate(['question-and-answer']) :
     this.rout.navigate(['fill-the-gaps'])
   }
-  
+  // Home function handler
   home() {
     this.rout.navigate([''])
   }
-
+  // Main action Function
   extract() {
+    // Check if text character is greater than 99 before proceed
     if(this.text.length >= 100) {
+      // loader
       this.babyLoader.start();
+      // Send text to service in other handle AI analysis
       this.server.submitExtractedTextAndGetQuestions(this.text)
-      .subscribe((dat: any)=>{console.log(dat)
+      .subscribe((dat: any)=>{
+        // Result from AI
         this.server.submitResult(JSON.stringify(dat['output']['questions']), this.text)
         .subscribe((dat: any)=>{
           this.babyLoader.stop()
+          // Success Report
           if(dat.isSuccess) {
             this.bottomSheet.open(UploadResponseComponent)
           }
+          // Error Response
           else {
             this.babyLoader.stop()
             this.bottomSheet.open(ErrorResponseComponent)
@@ -56,11 +63,13 @@ export class CopyAndPasteTextsComponent implements OnInit {
       }, 
       err=>{this.babyLoader.stop(); this.bottomSheet.open(ErrorResponseComponent)})
     }
+    // Response when text is less than 100
     else {
       alert('Text must be minimum of 100 characters')
     }
   }
 
+  // SendData function sanitizes the extracted data and sends to the tab of fil in the gaps 
   sendData() {
     const refactured_data = this.text.replace(",", " ").replace(".", " ").replace("-", " ").replace(":", " ").split(" ")
     const data_array  = refactured_data.filter(dat=>dat.length > 5)
