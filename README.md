@@ -54,3 +54,6 @@ This Tab allows user to input some definations in an input box and our AI reads 
 
 ##  Translation Tab
 This tab reseives a source language from the user which can either be Yoruba or English for now, then transalte it to the desired target the user desires.
+
+##  Image Identifier Tab
+This tab reseives an image captured by d App, transform it and send to the AI for detection..Response is vocally returned or written to the user.
