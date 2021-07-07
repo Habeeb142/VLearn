@@ -1,3 +1,4 @@
+import { FillTheGapsComponent } from './@components/fill-the-gaps/fill-the-gaps.component';
 import { CopyAndPasteTextsComponent } from './@components/copy-and-paste-texts/copy-and-paste-texts.component';
 import { TranslateComponent } from './@components/translate/translate.component';
 import { ViewQuestionsComponent } from './@components/view-questions/view-questions.component';
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'view-questions', component: ViewQuestionsComponent },
   { path: 'translate', component: TranslateComponent },
   { path: 'copy-paste-texts', component: CopyAndPasteTextsComponent },
+  { path: 'fill-the-gaps', component: QuestionAndAnswerComponent },
+  { path: 'fill', component: FillTheGapsComponent },
 ];
 
 @NgModule({

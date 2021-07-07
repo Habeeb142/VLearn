@@ -42,7 +42,7 @@
             </mat-form-field>
          </div>
 
-         <button mat-button (click)="extract()">
+         <button mat-button (click)="comingFrom == '/question-and-answer' ? extract() : sendData()">
              Extract 
          </button>
     </div>

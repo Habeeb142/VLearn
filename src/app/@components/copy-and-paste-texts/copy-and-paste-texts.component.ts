@@ -20,13 +20,17 @@ export class CopyAndPasteTextsComponent implements OnInit {
     private bottomSheet: MatBottomSheet
     ) { }
 
+  comingFrom
   text: string = ''
 
   ngOnInit(): void {
+    this.comingFrom = this.server.comingFrom
   }
 
   back() {
-    this.rout.navigate(['question-and-answer'])
+    this.comingFrom == '/question-and-answer'?
+    this.rout.navigate(['question-and-answer']) :
+    this.rout.navigate(['fill-the-gaps'])
   }
   
   home() {
@@ -55,6 +59,13 @@ export class CopyAndPasteTextsComponent implements OnInit {
     else {
       alert('Text must be minimum of 100 characters')
     }
+  }
+
+  sendData() {
+    const refactured_data = this.text.replace(",", " ").replace(".", " ").replace("-", " ").replace(":", " ").split(" ")
+    const data_array  = refactured_data.filter(dat=>dat.length > 5)
+    this.server.keepPasteText = data_array;
+    this.rout.navigate(['fill'])
   }
 
 }

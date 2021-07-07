@@ -8,6 +8,8 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
+  comingFrom: String = ''; keepPasteText;
+
   submitResult(result, extractedText) {
     return this.http.post('https://ka-mini-cam.azurewebsites.net/external', {result, extractedText})
   }

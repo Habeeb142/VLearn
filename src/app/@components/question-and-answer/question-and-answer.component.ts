@@ -47,6 +47,7 @@ export class QuestionAndAnswerComponent implements OnInit {
    ]
 
   ngOnInit(): void {
+    this.rout.url == '/question-and-answer' ? null : this.items.pop()
   }
 
   back() {
@@ -62,7 +63,6 @@ export class QuestionAndAnswerComponent implements OnInit {
           encodingType: this.camera.EncodingType.JPEG,
           mediaType: this.camera.MediaType.PICTURE
         }
-        this.babyLoader.start()
         this.camera.getPicture(options).then((imageData) => {
           // imageData is either a base64 encoded string or a file URI
           // If it's base64 (DATA_URL):
@@ -74,7 +74,8 @@ export class QuestionAndAnswerComponent implements OnInit {
         break;
         
         default:
-        this.rout.navigate([x])
+          this.server.comingFrom = this.rout.url
+          this.rout.navigate([x])
         break;
     }
   }
@@ -82,7 +83,7 @@ export class QuestionAndAnswerComponent implements OnInit {
   handleExtractTextFromFileUrl(base64File) {
     try {
       this.ocr.recText(OCRSourceType.BASE64, base64File)
-      .then((res: OCRResult) => this.cleanData(res.lines.linetext))
+      .then((res: OCRResult) => this.rout.url == '/question-and-answer'? this.cleanData(res.lines.linetext) : this.handleFillTheGapsData(res.lines.linetext))
       .catch((error: any) => this.bottomSheet.open(ErrorResponseComponent));
     } catch (error) {
       this.bottomSheet.open(ErrorResponseComponent)
@@ -107,5 +108,12 @@ export class QuestionAndAnswerComponent implements OnInit {
       }, err=>{this.babyLoader.stop(); this.bottomSheet.open(ErrorResponseComponent)})
     }, 
     err=>{this.babyLoader.stop(); this.bottomSheet.open(ErrorResponseComponent)})
+  }
+
+  handleFillTheGapsData(data) {
+    const refactured_data = data.join(" ").replace(",", " ").replace(".", " ").replace("-", " ").replace(":", " ").split(" ")
+    const data_array  = refactured_data.filter(dat=>dat.length > 3)
+    this.server.keepPasteText = data_array;
+    this.rout.navigate(['fill'])
   }
 }

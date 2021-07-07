@@ -13,7 +13,6 @@ export class AppComponent {
 
   private previousUrl: string;
   private currentUrl: string;
-  private backButtonPressed: boolean = false;
 
   constructor(
     private rout: Router,
@@ -26,8 +25,6 @@ export class AppComponent {
       .subscribe((event: NavigationEnd) => {
           this.previousUrl = this.currentUrl;
           this.currentUrl = event.urlAfterRedirects;
-          console.log("prev: ", this.previousUrl)
-          console.log("curr: ", this.currentUrl)
       });
     }
 

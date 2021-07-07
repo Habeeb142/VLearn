@@ -1,3 +1,4 @@
+import { ServiceService } from './../../../@core/service.service';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -9,13 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorResponseComponent implements OnInit {
 
-  constructor(private rout: Router, private bottomSheet: MatBottomSheet) { }
+  constructor(
+    private rout: Router, 
+    private bottomSheet: MatBottomSheet,
+    private server: ServiceService
+    ) { }
 
   ngOnInit(): void {
   }
 
   retry() {
-    this.rout.navigate(['question-and-answer'])
+    this.server.comingFrom == '/question-and-answer' ?
+    this.rout.navigate(['question-and-answer']) :
+    this.rout.navigate(['fill-the-gaps']) 
   }
 
   goBack() {
