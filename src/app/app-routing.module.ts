@@ -1,3 +1,4 @@
+import { ImageIdentifierComponent } from './@components/image-identifier/image-identifier.component';
 import { FillTheGapsComponent } from './@components/fill-the-gaps/fill-the-gaps.component';
 import { CopyAndPasteTextsComponent } from './@components/copy-and-paste-texts/copy-and-paste-texts.component';
 import { TranslateComponent } from './@components/translate/translate.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'copy-paste-texts', component: CopyAndPasteTextsComponent },
   { path: 'fill-the-gaps', component: QuestionAndAnswerComponent },
   { path: 'fill', component: FillTheGapsComponent },
+  { path: 'identify-image', component: ImageIdentifierComponent }
 ];
 
 @NgModule({

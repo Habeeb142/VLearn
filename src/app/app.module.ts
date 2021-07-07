@@ -38,6 +38,7 @@ import { TranslateComponent } from './@components/translate/translate.component'
 import { ErrorResponseComponent } from './@components/overlay/error-response/error-response.component';
 import { CopyAndPasteTextsComponent } from './@components/copy-and-paste-texts/copy-and-paste-texts.component';
 import { FillTheGapsComponent } from './@components/fill-the-gaps/fill-the-gaps.component';
+import { ImageIdentifierComponent } from './@components/image-identifier/image-identifier.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { FillTheGapsComponent } from './@components/fill-the-gaps/fill-the-gaps.
     TranslateComponent,
     ErrorResponseComponent,
     CopyAndPasteTextsComponent,
-    FillTheGapsComponent
+    FillTheGapsComponent,
+    ImageIdentifierComponent
   ],
   imports: [
     BrowserModule,

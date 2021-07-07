@@ -38,6 +38,12 @@ export class HomeComponent implements OnInit {
       boxShadow: '0px 0px 8px rgba(248, 162, 32, 0.8)',
       rout: 'fill-the-gaps'
     },
+    { 
+      text: 'Identify Image',
+      bgColor: '#732CA4',
+      boxShadow: '0px 0px 8px rgba(115, 44, 164, 0.8)',
+      rout: 'identify-image'
+    },
    ]
 
   ngOnInit(): void {
