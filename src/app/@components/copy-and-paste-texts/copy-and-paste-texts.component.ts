@@ -71,7 +71,6 @@ export class CopyAndPasteTextsComponent implements OnInit {
       alert('Text must be minimum of 100 characters')
     }
   }
-
   // SendData function sanitizes the extracted data and sends to the tab of fil in the gaps 
   sendData() {
     const refactured_data = this.text.replace(",", " ").replace(".", " ").replace("-", " ").replace(":", " ").split(" ")
