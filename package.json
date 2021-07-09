@@ -35,6 +35,8 @@
     "@ionic-native/ocr": "^5.33.1",
     "@ionic-native/speech-recognition": "^5.33.1",
     "@ionic-native/text-to-speech": "^5.33.1",
+    "@ionic/angular": "^5.6.11",
+    "@ionic/cli": "^6.16.3",
     "@ngrx/effects": "^10.1.2",
     "@ngrx/store": "^10.1.2",
     "@ngrx/store-devtools": "^10.1.2",

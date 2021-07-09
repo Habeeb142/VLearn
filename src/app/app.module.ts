@@ -40,6 +40,7 @@ import { CopyAndPasteTextsComponent } from './@components/copy-and-paste-texts/c
 import { FillTheGapsComponent } from './@components/fill-the-gaps/fill-the-gaps.component';
 import { ImageIdentifierComponent } from './@components/image-identifier/image-identifier.component';
 
+import { IonicModule } from '@ionic/angular'
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,9 +54,10 @@ import { ImageIdentifierComponent } from './@components/image-identifier/image-i
     ErrorResponseComponent,
     CopyAndPasteTextsComponent,
     FillTheGapsComponent,
-    ImageIdentifierComponent
+    ImageIdentifierComponent,
   ],
   imports: [
+    IonicModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

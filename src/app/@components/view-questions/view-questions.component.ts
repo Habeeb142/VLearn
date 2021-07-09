@@ -18,15 +18,16 @@ export class ViewQuestionsComponent implements OnInit {
 
     // onload
   ngOnInit(): void {
-    this.getQuestions()
+    this.getQuestions(null)
   }
 
   // fetch questions from our Azure database
-  getQuestions() {
-    this.babyLoader.start()
+  getQuestions(event) {
+    this.babyLoader.start();
     // Go through the service to fetch data from the databse
     this.server.getQuestions().subscribe((dat: any)=>{
       this.babyLoader.stop()
+      event?.target?.complete();
       if(dat.isSuccess) {
         // array.reverse the data
         this.questions = dat['results'].reverse();
@@ -48,7 +49,7 @@ export class ViewQuestionsComponent implements OnInit {
       alert('Network Error');
     })
   }
-
+  
   // back function
   back() {
     this.rout.navigate(['question-and-answer'])

@@ -28,8 +28,8 @@ export class ServiceService {
   }
 
   // Endpoint to send picture to AI For Analysis
-  sendImageForAnalysis(image) {
-    return this.http.post('http://3.131.85.125/translate', {image})
+  sendImageForAnalysis(text) {
+    return this.http.post('http://20.86.175.71:81/vit', {text})
   }
 
 }

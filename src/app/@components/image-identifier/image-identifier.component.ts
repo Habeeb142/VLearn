@@ -41,15 +41,16 @@ export class ImageIdentifierComponent implements OnInit {
   snapShot() {
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     }
     this.camera.getPicture(options).then((imageData) => {
       alert(JSON.stringify(imageData))
       // Send image to service to send to AI
-      this.server.sendImageForAnalysis(imageData).subscribe(dat=>{
-        this.responseText = `The image is an ${dat}`;
+      this.server.sendImageForAnalysis(imageData).subscribe((dat: any)=>{
+        alert(JSON.stringify(dat.output))
+        this.responseText = `The image is an ${dat.output}`;
         // handle text to speech function
         this.handleSpeechToText()
         // Handle Error

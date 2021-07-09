@@ -7,6 +7,7 @@ import { Router, RouterEvent, NavigationEnd } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 @Injectable({providedIn: 'root'})
 export class AppComponent {
   title = 'Tunga';
@@ -14,6 +15,7 @@ export class AppComponent {
   private previousUrl: string;
   private currentUrl: string;
 
+  
   constructor(
     private rout: Router,
     private bottomSheet: MatBottomSheet
@@ -23,6 +25,7 @@ export class AppComponent {
       this.rout.events
       .pipe(filter((event: RouterEvent) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
+        console.log(this.previousUrl)
           this.previousUrl = this.currentUrl;
           this.currentUrl = event.urlAfterRedirects;
       });
@@ -35,7 +38,7 @@ export class AppComponent {
     document.addEventListener('backbutton', (e)=>{
       e.preventDefault();
       localStorage.setItem('__ROUT__', this.previousUrl.substring(1))
-      location.href = 'index.html';
+      this.currentUrl == '/'? (navigator as any).app.exitApp() : location.href = 'index.html';
     }, false)
   }
 
