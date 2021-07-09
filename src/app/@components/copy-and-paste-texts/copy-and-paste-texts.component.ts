@@ -41,6 +41,8 @@ export class CopyAndPasteTextsComponent implements OnInit {
   extract() {
     // Check if text character is greater than 99 before proceed
     if(this.text.length >= 100) {
+      // Remove all quotations
+      this.text = this.text.replace(/["']/g, "")
       // loader
       this.babyLoader.start();
       // Send text to service in other handle AI analysis

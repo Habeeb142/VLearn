@@ -33,7 +33,7 @@ export class ViewQuestionsComponent implements OnInit {
         this.questions = dat['results'].reverse();
         // JSON.parse the results from AI
         for (let index = 0; index < this.questions.length; index++) {
-          const element = this.questions[index];
+          let element = this.questions[index];
           element.result = JSON.parse(element['result']);
 
           // set correct option into the options

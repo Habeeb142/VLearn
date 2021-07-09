@@ -97,6 +97,7 @@ export class QuestionAndAnswerComponent implements OnInit {
   cleanData(response) {
     this.babyLoader.start();
     this.extractedText = response.join(" ");
+    this.extractedText = this.extractedText.replace(/["']/g, "")
     // Send data to AI 
     this.server.submitExtractedTextAndGetQuestions(this.extractedText)
     .subscribe((dat: any)=>{
