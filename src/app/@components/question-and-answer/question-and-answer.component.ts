@@ -24,7 +24,7 @@ export class QuestionAndAnswerComponent implements OnInit {
     private camera: Camera
     ) { }
 
-  extractedText = null;
+  extractedText;
   // Differnet actions
   items = [ 
     { 
@@ -98,7 +98,7 @@ export class QuestionAndAnswerComponent implements OnInit {
     this.babyLoader.start();
     this.extractedText = response.join(" ");
     // Send data to AI 
-    this.server.submitExtractedTextAndGetQuestions(this.extractedText.replaceAll(`"`, " ").replaceAll(`'`, " "))
+    this.server.submitExtractedTextAndGetQuestions(this.extractedText)
     .subscribe((dat: any)=>{
       // AI report
       this.server.submitResult(JSON.stringify(dat['output']['questions']), this.extractedText)
@@ -120,10 +120,9 @@ export class QuestionAndAnswerComponent implements OnInit {
 
   // Sanitize and Provide data to fill in the gap comonent
   handleFillTheGapsData(data) {
-    const refactured_data = data.join(" ").replaceAll(",", " ").replaceAll(".", " ").replaceAll("-", " ").replaceAll(":", " ").split(" ")
+    const refactured_data = data.join(" ").replace(",", " ").replace(".", " ").replace("-", " ").replace(":", " ").split(" ")
     const data_array  = refactured_data.filter(dat=>dat.length > 3)
     this.server.keepPasteText = data_array;
     this.rout.navigate(['fill'])
   }
-
 }

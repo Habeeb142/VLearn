@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {   
     // open Manual
     this.bottomSheet.open(ManualComponent)
-    }, 1500);
+    }, 1000);
   }
   // Navigation handler
   screenTo(rout) {

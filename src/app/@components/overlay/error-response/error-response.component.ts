@@ -20,8 +20,8 @@ export class ErrorResponseComponent implements OnInit {
   }
   // Retry function...Check where you are coming from to know where to navigate to
   retry() {
-    this.goBack()
-    this.server.comingFrom == '/question-and-answer' ?
+    this.goBack();
+    (this.server.comingFrom == '/question-and-answer' || this.server.comingFrom == '/copy-paste-texts') ?
     this.rout.navigate(['question-and-answer']) :
     this.rout.navigate(['fill-the-gaps']) 
 
