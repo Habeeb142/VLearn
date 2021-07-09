@@ -65,7 +65,6 @@ export class CopyAndPasteTextsComponent implements OnInit {
         }, err=>{this.babyLoader.stop(); this.bottomSheet.open(ErrorResponseComponent)})
       }, 
       err=>{this.babyLoader.stop(); this.bottomSheet.open(ErrorResponseComponent)})
-
     }
     // Response when text is less than 100
     else {
