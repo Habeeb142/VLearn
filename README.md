@@ -58,4 +58,4 @@ This Tab allows user to input some definations in an input box and our AI inbuil
 This tab receives a source language from the user which can either be Yoruba or English "for now", then translates it to the desired target the user desires.
 
 ##  Image Identifier Tab
-This tab reseives an image captured by d App, transform it and send to the AI for detection..Response is vocally returned or written to the user.
+This tab receives an image captured by the App user, transforms it and sends to the AI residing on Azure for detection..Response is vocally returned or written to the user.

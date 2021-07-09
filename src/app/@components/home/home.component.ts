@@ -1,3 +1,5 @@
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { ManualComponent } from './../overlay/manual/manual.component';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +11,8 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private bottomSheet: MatBottomSheet
   ) { }
 
   // Array handling different available tabs
@@ -47,6 +50,10 @@ export class HomeComponent implements OnInit {
    ]
 
   ngOnInit(): void {
+    setTimeout(() => {   
+    // open Manual
+    this.bottomSheet.open(ManualComponent)
+    }, 1500);
   }
   // Navigation handler
   screenTo(rout) {

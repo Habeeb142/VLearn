@@ -1,5 +1,3 @@
-import { ManualComponent } from './@components/overlay/manual/manual.component';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Component, Injectable } from '@angular/core';
 import { filter } from 'rxjs/operators';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
@@ -18,8 +16,7 @@ export class AppComponent {
 
   
   constructor(
-    private rout: Router,
-    private bottomSheet: MatBottomSheet
+    private rout: Router
     ) { 
       this.currentUrl = this.rout.url;
       this.previousUrl = null;
@@ -38,13 +35,13 @@ export class AppComponent {
     this.previousUrl ? this.isBackButton() : null;
     
     document.addEventListener('backbutton', (e)=>{
-      e.preventDefault();
-      localStorage.setItem('__ROUT__', this.previousUrl.substring(1))
-      this.currentUrl == '/'? (navigator as any).app.exitApp() : location.href = 'index.html';
+        e.preventDefault();
+        setTimeout(() => {
+          localStorage.setItem('__ROUT__', this.previousUrl.substring(1))
+          this.currentUrl == '/'? (navigator as any).app.exitApp() : location.href = 'index.html';
+        }, 500);
     }, false)
 
-    // open Manual
-    this.bottomSheet.open(ManualComponent)
   }
   // check isBackbutton pressed
   isBackButton() {

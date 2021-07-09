@@ -46,6 +46,12 @@ export class ManualComponent implements OnInit {
       Upon extracting data, The app automatically generates words that are 
       found ambigous within the context, sanitizes it and use it as a 
       fill the gap exercise`
+    },
+    {
+      tittle: 'Image Identifier',
+      body: `This module receives an image captured by the App user, 
+      transforms it and sends to the AI residing on Azure for detection...
+      Response is vocally returned or written to the user.`
     }
   ]
 

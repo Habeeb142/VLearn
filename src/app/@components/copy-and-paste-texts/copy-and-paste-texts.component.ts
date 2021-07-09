@@ -44,7 +44,7 @@ export class CopyAndPasteTextsComponent implements OnInit {
       // loader
       this.babyLoader.start();
       // Send text to service in other handle AI analysis
-      this.server.submitExtractedTextAndGetQuestions(this.text)
+      this.server.submitExtractedTextAndGetQuestions((this.text as any).replaceAll(`"`, " ").replaceAll(`'`, " "))
       .subscribe((dat: any)=>{
         // Result from AI
         this.server.submitResult(JSON.stringify(dat['output']['questions']), this.text)

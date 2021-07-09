@@ -14,7 +14,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 })
 export class ImageIdentifierComponent implements OnInit {
 
-  responseText: string;
+  responseText: string; image: String;
 
   constructor(
     private router: Router,
@@ -46,10 +46,16 @@ export class ImageIdentifierComponent implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     }
     this.camera.getPicture(options).then((imageData) => {
+      this.image = 'data:image/jpeg;base64,'+imageData
+      this.babyLoader.start()
       // Send image to service to send to AI
       this.server.sendImageForAnalysis(imageData).subscribe((dat: any)=>{
-        alert(JSON.stringify(dat.output))
-        this.responseText = `The image is an ${dat.output}`;
+        this.babyLoader.stop()
+        // use regex to check if first letter of result is a vowel or consonant
+        const pat = /[aeiou]/g
+        const res = dat.output.split(",")[0].substring(0, 1).match(pat) == null;
+        // cehck end
+        this.responseText = `The image is ${ res? 'a' : 'an' } ${dat.output.split(",")[0]}`;
         // handle text to speech function
         this.handleSpeechToText()
         // Handle Error
