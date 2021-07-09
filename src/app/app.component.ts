@@ -1,3 +1,4 @@
+import { ManualComponent } from './@components/overlay/manual/manual.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { Component, Injectable } from '@angular/core';
 import { filter } from 'rxjs/operators';
@@ -32,6 +33,7 @@ export class AppComponent {
     }
 
   ngOnInit(): void {
+    // Set backbutton routing
     this.previousUrl = localStorage.getItem('__ROUT__');
     this.previousUrl ? this.isBackButton() : null;
     
@@ -40,8 +42,11 @@ export class AppComponent {
       localStorage.setItem('__ROUT__', this.previousUrl.substring(1))
       this.currentUrl == '/'? (navigator as any).app.exitApp() : location.href = 'index.html';
     }, false)
-  }
 
+    // open Manual
+    this.bottomSheet.open(ManualComponent)
+  }
+  // check isBackbutton pressed
   isBackButton() {
     localStorage.clear()
     this.rout.navigate([this.previousUrl]);

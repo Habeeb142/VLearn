@@ -46,7 +46,6 @@ export class ImageIdentifierComponent implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     }
     this.camera.getPicture(options).then((imageData) => {
-      alert(JSON.stringify(imageData))
       // Send image to service to send to AI
       this.server.sendImageForAnalysis(imageData).subscribe((dat: any)=>{
         alert(JSON.stringify(dat.output))

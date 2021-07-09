@@ -40,7 +40,8 @@ import { CopyAndPasteTextsComponent } from './@components/copy-and-paste-texts/c
 import { FillTheGapsComponent } from './@components/fill-the-gaps/fill-the-gaps.component';
 import { ImageIdentifierComponent } from './@components/image-identifier/image-identifier.component';
 
-import { IonicModule } from '@ionic/angular'
+import { IonicModule } from '@ionic/angular';
+import { ManualComponent } from './@components/overlay/manual/manual.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { IonicModule } from '@ionic/angular'
     CopyAndPasteTextsComponent,
     FillTheGapsComponent,
     ImageIdentifierComponent,
+    ManualComponent,
   ],
   imports: [
     IonicModule.forRoot(),
