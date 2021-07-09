@@ -6,21 +6,30 @@
     font-size: 18px;
     line-height: 24px;
     color: rgba(43, 41, 40, 0.9);    
+    background-color: #fff;
 }
 .content {
-    background: #F2F2F2;
+    background: rgba(255, 255, 255, 0.9);;
     padding: 1rem;
-    margin-top: .5rem;
+    margin-top: .3rem;
 }
 .tittle {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 24px;
     color: #2B2928;
+    text-justify: auto;
 }
 .body {
     font-weight: normal;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 26px;
     color: rgba(43, 41, 40, 0.7);
+    margin-top: 1rem;
+}
+.whole {
+    background-color: #732CA4;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-image: url("/assets/ic.png");
 }

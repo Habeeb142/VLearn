@@ -39,21 +39,23 @@ Different tabs exist on the application viz-a-viz:
     Image Identifier Tab
 
 ## Question and Answer Tab
-This Tab allows user to input some copied text or snap a page while our AI extracts text from the image and send sto another AI port to generate Question for user.
-The question alongside answers would be validated by the APP to give score to the user
+This module allows user to input some copied text or snap a page while 
+our AI integrated directly on the app extracts text from the image then sends to another AI port on our Azure cloud to generate Questions for user.
+
+The question alongside answers would be validated by the APP upon submission to give score to the user
 
 ## Fill The Gaps Tab
-Fill in the gap tab accept two different kind of data source.
+Fill in the gap tab accept two different kind of data sources.
     The first one is copy and paste text to extract and
     The second is to take a snapshot of a page then our AI extracts the texts.
 
 Once texts are been extracted, the onload function in the fill-the-gap components generates all the available word to use for the exercise
 
 ##  Memorize on the move Tab
-This Tab allows user to input some definations in an input box and our AI reads the words for the user and wait for the user to also read out the defibation...It tells the user if he is wrong or right...You can only proceed when you are right
+This Tab allows user to input some definations in an input box and our AI inbuilt inside the application reads the words for the user and wait for the user to also read out the defination...It tells the user if he is wrong or right...You can only proceed when you are right.
 
 ##  Translation Tab
-This tab reseives a source language from the user which can either be Yoruba or English for now, then transalte it to the desired target the user desires.
+This tab receives a source language from the user which can either be Yoruba or English "for now", then translates it to the desired target the user desires.
 
 ##  Image Identifier Tab
 This tab reseives an image captured by d App, transform it and send to the AI for detection..Response is vocally returned or written to the user.
