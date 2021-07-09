@@ -98,7 +98,7 @@ export class QuestionAndAnswerComponent implements OnInit {
     this.babyLoader.start();
     this.extractedText = response.join(" ");
     // Send data to AI 
-    this.server.submitExtractedTextAndGetQuestions((this.extractedText as any).replaceAll(`"`, " ").replaceAll(`'`, " "))
+    this.server.submitExtractedTextAndGetQuestions(this.extractedText.replaceAll(`"`, " ").replaceAll(`'`, " "))
     .subscribe((dat: any)=>{
       // AI report
       this.server.submitResult(JSON.stringify(dat['output']['questions']), this.extractedText)

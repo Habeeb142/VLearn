@@ -21,7 +21,7 @@ export class CopyAndPasteTextsComponent implements OnInit {
     ) { }
 
   comingFrom
-  text: string = ''
+  text = null
 
   ngOnInit(): void {
     this.comingFrom = this.server.comingFrom
@@ -44,7 +44,7 @@ export class CopyAndPasteTextsComponent implements OnInit {
       // loader
       this.babyLoader.start();
       // Send text to service in other handle AI analysis
-      this.server.submitExtractedTextAndGetQuestions((this.text as any).replaceAll(`"`, " ").replaceAll(`'`, " "))
+      this.server.submitExtractedTextAndGetQuestions(this.text.replaceAll(`"`, " "))
       .subscribe((dat: any)=>{
         // Result from AI
         this.server.submitResult(JSON.stringify(dat['output']['questions']), this.text)
@@ -71,7 +71,7 @@ export class CopyAndPasteTextsComponent implements OnInit {
 
   // SendData function sanitizes the extracted data and sends to the tab of fil in the gaps 
   sendData() {
-    const refactured_data = this.text.replace(",", " ").replace(".", " ").replace("-", " ").replace(":", " ").split(" ")
+    const refactured_data = this.text.replaceAll(",", " ").replaceAll(".", " ").replaceAll("-", " ").replaceAll(":", " ").split(" ")
     const data_array  = refactured_data.filter(dat=>dat.length > 5)
     this.server.keepPasteText = data_array;
     this.rout.navigate(['fill'])
