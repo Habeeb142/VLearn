@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.vlearn.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>VLearn</name>
+    <name>MyApp</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
@@ -21,10 +21,10 @@
             <application android:usesCleartextTraffic="true" />
         </edit-config>
 
-        <icon src="src/assets/ic.png" width="57" height="57" density="mdpi"/>
+        <!-- <icon src="src/assets/ic.png" width="57" height="57" density="mdpi"/>
         <icon src="src/assets/ic.png" width="57" height="57" density="xhdpi"/>
         <icon src="src/assets/ic.png" width="57" height="57" density="xxhdpi"/>
-        <icon src="src/assets/ic.png" width="57" height="57" density="hdpi"/>
+        <icon src="src/assets/ic.png" width="57" height="57" density="hdpi"/> -->
     </platform>
     <!-- <preference name="StatusBarBackgroundColor" value="#fff" /> -->
 </widget>
